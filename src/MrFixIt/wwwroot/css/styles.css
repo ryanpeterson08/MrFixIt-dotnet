@@ -1,5 +1,6 @@
 ﻿body {
     padding-top: 70px;
+    background-image: url(../img/pexels-photo-64609.jpeg)
  
 }
 
@@ -22,4 +23,20 @@ li.li-desc{
 
 ul{
     list-style: none;
+}
+
+.block{
+    border-radius: 10px;
+    background-color: white;
+    opacity: 0.8;
+    border: 0.5px black solid;
+    margin-bottom: 10px;
+}
+
+
+.link{
+    background-color: white;
+    opacity: 0.8;
+    padding: 5px;
+
 }

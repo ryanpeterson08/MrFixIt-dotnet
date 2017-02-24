@@ -7,8 +7,8 @@
 
 @model MrFixIt.Models.Job
 
+<div class="block text-center">
     <h2>Create new Job</h2>
-        <hr />
         <h4>Add a new job</h4>
         @using (Html.BeginForm())
         {
@@ -22,4 +22,6 @@
             </div>
             <input type="submit" value="Add new job" class="btn btn-primary"/>
         }
-        <p>@Html.ActionLink("Back to list", "Index")</p>
+    <p>@Html.ActionLink("Back to list", "Index")</p>
+</div>
+

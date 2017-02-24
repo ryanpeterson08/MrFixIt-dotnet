@@ -12,22 +12,28 @@
     <title>Create</title>
 </head>
 <body>
-    <h2>Create</h2>
-    <hr />
-    @if (User.Identity.IsAuthenticated)
-    {
-        <h4>You do not have a complete worker profile. Please create your worker profile</h4>
-        @using (Html.BeginForm())
+    <div class="block text-center">
+        <h2>Create</h2>
+    
+        @if (User.Identity.IsAuthenticated)
         {
-            @Html.LabelFor(model => model.FirstName)
-            @Html.TextBoxFor(model => model.FirstName)
-            @Html.LabelFor(model => model.LastName)
-            @Html.TextBoxFor(model => model.LastName)
+            <h4>You do not have a complete worker profile. Please create your worker profile</h4>
+            @using (Html.BeginForm())
+            {
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FirstName)
+                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LastName)
+                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+                </div>
 
 
-            <input type="submit" value="Register" />
+                <input type="submit" value="Register" class="btn btn-primary"/>
+            }
         }
-    }
+    </div>
 
 
 

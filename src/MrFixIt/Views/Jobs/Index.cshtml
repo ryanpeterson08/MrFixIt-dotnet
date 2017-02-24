@@ -3,29 +3,28 @@
 *@
 @{
 }
-<div class="text-center">
-    <h3>Our Current Jobs</h3>
-    @Html.ActionLink("Add a new job", "Create")
+<div class="text-center block">
+    <h1>Our Current Jobs</h1>
+    @Html.ActionLink("Add a new job", "Create", new { @class = "link" })
 </div>
 @foreach (var Job in Model)
 {
-    <ul>
-        <li class="li-title">@Job.Title</li>
+    <div class="block">
         <ul>
-            <li class="li-desc">@Job.Description</li>
+            <li class="li-title">@Job.Title</li>
+            <ul>
+                <li class="li-desc">@Job.Description</li>
+            </ul>
+            @if (Job.Worker == null)
+            {
+            <li class="btn">This job is unclaimed. @Html.ActionLink("Claim This Job", "Claim", new { @text = @Job.Title, id = Job.JobId })</li>
+            }
+            else
+            {
+                <li class="btn">This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
+
+            }
         </ul>
-        @if (Job.Worker == null)
-        {
-        <li class="btn">This job is unclaimed. @Html.ActionLink("Claim This Job", "Claim", new { @text = @Job.Title, id = Job.JobId })</li>
-        }
-        else
-        {
-            <li class="btn">This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
-
-        }
-    </ul>
-
-
-    <hr />
+    </div>
 }
 

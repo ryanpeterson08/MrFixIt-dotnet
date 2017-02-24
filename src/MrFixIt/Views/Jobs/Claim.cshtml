@@ -6,17 +6,20 @@
 
 @model MrFixIt.Models.Job
 
-<h2>Would you like to do this job?</h2>
-<hr />
+<div class="block text-center">
+    <h2>Would you like to do this job?</h2>
+    <form action="Claim" class="new-claim">
+        @Html.HiddenFor(model => model.JobId)
+        @Html.HiddenFor(model => model.Title)
+        @Html.HiddenFor(model => model.Description)
 
-<form action="Claim" class="new-claim">
-    @Html.HiddenFor(model => model.JobId)
-    @Html.HiddenFor(model => model.Title)
-    @Html.HiddenFor(model => model.Description)
+        @*<h4>@Model.Title</h4>*@
+        <input type="submit" value="Claim This Job" class="btn btn-primary" />
+    </form>
+    <div id="show-result"></div>
+    <p>@Html.ActionLink("Back to list", "Index")</p>
+</div>
 
-    @*<h4>@Model.Title</h4>*@
-    <input type="submit" value="Claim This Job" />
-</form>
 
 
 
@@ -26,7 +29,6 @@
     <input type="hidden" value="@Model.Description" name="Description" />
     <button type="submit">Submit</button>
 </form>*@
-<div id="show-result"></div>
 
 <script type="text/javascript">
     $('.new-claim').submit(function (event) {
@@ -45,4 +47,3 @@
 
     })
 </script>
-<p>@Html.ActionLink("Back to list", "Index")</p>
