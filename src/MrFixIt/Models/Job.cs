@@ -21,5 +21,17 @@ namespace MrFixIt.Models
             Worker thisWorker = new MrFixItContext().Workers.FirstOrDefault(i => i.UserName == UserName);
             return thisWorker;
         }
+
+        public Job(int jobId, string title, string description)
+        {
+            JobId = jobId;
+            Title = title;
+            Description = description;
+        }
+
+        public Job()
+        {
+
+        }
     }
 }
