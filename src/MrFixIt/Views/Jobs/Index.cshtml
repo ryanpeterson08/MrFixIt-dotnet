@@ -10,9 +10,9 @@
 @foreach (var Job in Model)
 {
     <ul>
-        <li>@Job.Title</li>
+        <li class="li-title">@Job.Title</li>
         <ul>
-            <li>@Job.Description</li>
+            <li class="li-desc">@Job.Description</li>
         </ul>
         @if (Job.Worker == null)
         {

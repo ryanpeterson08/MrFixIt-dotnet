@@ -7,3 +7,19 @@ form{
     display:inline-block;
     
 }
+
+li.btn{
+    font-size: 18px;
+}
+
+li.li-title{
+    font-size: 25px;
+}
+
+li.li-desc{
+    font-size: 20px;
+}
+
+ul{
+    list-style: none;
+}
