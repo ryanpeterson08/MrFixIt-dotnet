@@ -1,16 +1,31 @@
-### Mr Fix-It
-#### A repair technician job service.
+# Mr Fix It
 
-COMPLETED:
-* Users can register and log on
-* Users may sign up to be "workers" on the site.
-* New jobs may be added to the jobs list.
-* A job can be assigned to a worker.
-* A worker may take on mulitple jobs from the Worker Dashboard.
+####  Web app prototype for Mr Fix It Site 2/24/2017
 
-IN PROGRESS
-* Make *claiming* a job an **AJAX** action.
+#### By Ryan Peterson
 
-NEXT UP
-* A worker may designate one **active** job at a time. **AJAX**
-* Workers may mark jobs complete, and select a new active job. **AJAX**
+## Description
+
+Web app that allows users to create jobs,  claim jobs, aznd mark whether they are in progress or completed
+
+
+## Setup/Installation Requirements
+* Download or clone git repo at https://github.com/ryanpeterson08/MrFixIt-dotnet
+* run "dotnet ef database update" - make sure a migrations file is present first
+* If no migration file is present run "dotnet ef migrations add Initial" - then "dotnet ef database update"
+* Run "dotnet run" and the app should open up in your default browser
+
+## Support and contact details
+
+Email: ryanpeterson08@gmail.com
+
+## Technologies Used
+
+* HTML/CSS
+* C#/ASP.NET
+* Bootstrap
+* Jquery
+
+### License
+
+Copyright (c) 2017 Ryan Peterson
