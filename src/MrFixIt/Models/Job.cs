@@ -22,12 +22,12 @@ namespace MrFixIt.Models
             return thisWorker;
         }
 
-        public Job(int jobId, string title, string description)
-        {
-            JobId = jobId;
-            Title = title;
-            Description = description;
-        }
+        //public Job(int jobId, string title, string description)
+        //{
+        //    JobId = jobId;
+        //    Title = title;
+        //    Description = description;
+        //}
 
         public Job()
         {

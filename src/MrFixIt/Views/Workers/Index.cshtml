@@ -13,9 +13,24 @@
         <h3>Your Current Jobs:</h3>
         @foreach (var Job in Model.Jobs)
         {
-            <h5>@Job.Title</h5>
+            
+            <h1>@Job.Title</h1>
+
+            <form action="JobStatus" class="job-status">
+                <p>Working On: @Job.Pending |</p>
+                <input type="hidden" value="@Job.JobId" name="JobId" />
+                <input type="submit" value="Toggle Pending" class="btn btn-primary"/>
+            </form>
+
+            <form action="JobComplete" class="job-complete">
+                <p>Is Complete: @Job.Completed</p>
+                <input type="hidden" value="@Job.JobId" name="JobId" />
+                <input type="submit" value="Toggle Complete" class="btn btn-primary"/>
+            </form>
+
 
         }
+       
         @if (Model.Avaliable)
         {
             <h2>Please @Html.ActionLink("select a job", "Index", "Jobs").</h2>
@@ -24,5 +39,40 @@
         {
             <p>You are already assigned to a job.</p>
         }
+
+    <script type="text/javascript">
+        $('.job-status').submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                url: '@Url.Action("JobStatus", "Jobs")',
+                type: 'POST',
+                dataType: 'json',
+                data: $(this).serialize(),
+                success: function (result) {
+                    var resultMessage = 'Job Status changed';
+                    $('#show-result').html(resultMessage);
+                }
+
+            })
+
+        })
+
+        $('.job-complete').submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                url: '@Url.Action("JobComplete", "Jobs")',
+                type: 'POST',
+                dataType: 'json',
+                data: $(this).serialize(),
+                success: function (result) {
+                    var resultMessage = 'Job Completion';
+                    $('#show-result').html(resultMessage);
+                }
+
+            })
+
+        })
+    </script>
+    <div id="show-result"></div>
     </div>
 }

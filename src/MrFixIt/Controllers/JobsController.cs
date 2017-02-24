@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MrFixIt.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -47,6 +48,42 @@ namespace MrFixIt.Controllers
             db.Entry(job).State = EntityState.Modified;
             db.SaveChanges();
             return Json(job);
+        }
+
+        [HttpPost]
+        public IActionResult JobStatus(int JobId)
+        {
+            
+            var thisJob = db.Jobs.FirstOrDefault(j => j.JobId == JobId);
+            if(thisJob.Pending)
+            {
+                thisJob.Pending = false;
+            }
+            else
+            {
+                thisJob.Pending = true;
+            }
+            db.Entry(thisJob).State = EntityState.Modified;
+            db.SaveChanges();
+            return Json(thisJob);
+        }
+
+        [HttpPost]
+        public IActionResult JobComplete(int JobId)
+        {
+            Debug.WriteLine("here is your ID " + JobId);
+            var thisJob = db.Jobs.FirstOrDefault(j => j.JobId == JobId);
+            if (thisJob.Completed)
+            {
+                thisJob.Completed = false;
+            }
+            else
+            {
+                thisJob.Completed = true;
+            }
+            db.Entry(thisJob).State = EntityState.Modified;
+            db.SaveChanges();
+            return Json(thisJob);
         }
     }
 }
